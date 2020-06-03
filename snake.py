@@ -23,9 +23,57 @@ head.penup()
 head.goto(0, 0)
 head.direction = "stop"
 
+# Functions
+def go_up():
+    head.direction = "up"
+
+def go_down():
+    head.direction = "down"
+
+def go_left():
+    head.direction = "left"
+
+def go_right():
+    head.direction = "right"
+
+    
+def move():
+    if head.direction == "up":
+        y = head.ycor()
+        head.sety(y + 20)
+
+    if head.direction == "down":
+        y = head.ycor()
+        head.sety(y - 20)
+
+    if head.direction == "left":
+        x = head.xcor()
+        head.setx(x - 20)
+
+    if head.direction == "right":
+        x = head.xcor()
+        head.setx(x + 20)
+
+# Keyboard binding
+wn.listen()
+
+## Using arrows
+wn.onkey(go_up, "Up")
+wn.onkey(go_down, "Down")
+wn.onkey(go_left, "Left")
+wn.onkey(go_right, "Right")
+
+## Using letters
+wn.onkey(go_up, "w")
+wn.onkey(go_down, "s")
+wn.onkey(go_left, "a")
+wn.onkey(go_right, "d")
+
 # Main game loop
 while True:
     wn.update()
+
+    move()
 
     time.sleep(delay)
 
