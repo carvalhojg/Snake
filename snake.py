@@ -23,6 +23,14 @@ head.penup()
 head.goto(0, 0)
 head.direction = "stop"
 
+# Snake food
+food = turtle.Turtle()
+food.speed(0)
+food.shape("circle")
+food.color("red")
+food.penup()
+food.goto(0, 100)
+
 # Functions
 def go_up():
     head.direction = "up"
